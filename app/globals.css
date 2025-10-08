@@ -5,6 +5,35 @@
   --foreground: #171717;
 }
 
+
+/* Force white text on Clerk dropdown buttons */
+.cl-userButtonPopoverActionButton,
+.cl-socialButtonsBlockButtonText ,
+.cl-userButtonPopoverActionButton *,
+.cl-userButtonPopoverActionButtonText {
+  color: white !important;
+}
+
+.cl-userButtonPopoverActionButton:hover,
+.cl-userButtonPopoverActionButton:hover * {
+  color: #22d3ee !important; /* cyan-500 */
+}
+
+.cl-userButtonPopoverActionButtonIcon {
+  color: #67e8f9 !important; /* cyan-300 */
+}
+.cl-socialButtonsBlockButton {
+  border:2px solid #67e8f9 !important; /* cyan-300 */
+}
+.cl-internal-pe6vm4,
+.cl-internal-l2l775,
+.cl-internal-1dauvpw{
+  display: none !important;
+}
+.cl-userButtonPopoverFooter {
+  color: white !important;
+  border-top: 1px solid rgba(34, 211, 238, 0.3) !important;
+}
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -19,8 +48,337 @@
   }
 }
 
+
+
+
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+/* === Clerk UserButton Custom Theme === */
+.cl-userButtonPopoverCard,
+.cl-userButtonPopoverMain,
+.cl-userButtonPopoverFooter {
+  background: #05060a !important;
+  border: 1px solid rgba(0, 255, 255, 0.15) !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.15) !important;
+  color: #e0faff !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+/* Avatar ring glow */
+.cl-avatarBox {
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.3) !important;
+  border-radius: 50% !important;
+}
+
+/* Main Username + Email */
+.cl-userPreviewMainIdentifierText {
+  color: #aefcff !important;
+  font-weight: 600 !important;
+}
+.cl-userPreviewSecondaryIdentifier {
+  color: #80e6ff !important;
+  font-size: 0.85rem !important;
+}
+
+/* Buttons inside dropdown */
+.cl-userButtonPopoverActionButton {
+  color: #e0faff !important;
+  border-radius: 0.75rem !important;
+  transition: all 0.25s ease !important;
+}
+.cl-userButtonPopoverActionButton:hover {
+  background-color: rgba(0, 255, 255, 0.08) !important;
+  color: #b4f9c0 !important;
+  transform: translateX(4px) !important;
+}
+.cl-userButtonPopoverActionButtonIcon {
+  color: #6fffe9 !important;
+}
+
+/* Footer Section */
+.cl-userButtonPopoverFooter {
+  border-top: 1px solid rgba(0, 255, 255, 0.1) !important;
+  color: #99ffff !important;
+}
+.cl-userButtonPopoverFooter a {
+  color: #00eaff !important;
+}
+.cl-userButtonPopoverFooter a:hover {
+  color: #8affc1 !important;
+}
+
+/* Secured by Clerk small text */
+.cl-userButtonPopoverFooter p {
+  color: #66f5ff !important;
+  font-size: 0.75rem !important;
+  opacity: 0.8 !important;
+}
+
+/* Popover animation */
+.cl-userButtonPopoverCard {
+  animation: fadeSlideIn 0.3s ease-out forwards !important;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ============================
+   Clerk Profile Custom Styling
+   ============================ */
+
+/* Global glass background */
+.cl-profile-root {
+  background: transparent !important;
+  color: #e0f7fa !important;
+}
+
+/* Card container */
+.cl-profile-card {
+  background: rgba(15, 23, 42, 0.7) !important;
+  border: 1px solid rgba(34, 211, 238, 0.3) !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  color: #e0f7fa !important;
+}
+
+/* Navbar (sidebar or top bar) */
+.cl-navbar,
+.cl-navbar__border {
+  background: rgba(10, 10, 15, 0.5) !important;
+  border-color: rgba(34, 211, 238, 0.3) !important;
+}
+
+/* Navbar buttons */
+.cl-navbar-button {
+  color: #94a3b8 !important;
+  transition: all 0.3s ease;
+}
+.cl-navbar-button:hover {
+  color: #22d3ee !important;
+}
+.cl-navbar-button__active {
+  color: #a3e635 !important;
+  font-weight: 600 !important;
+}
+
+/* Section titles */
+.cl-profile-section__title {
+  color: #67e8f9 !important;
+  font-weight: 500 !important;
+}
+
+/* Input fields */
+.cl-formFieldInput {
+  background-color: rgba(15, 23, 42, 0.8) !important;
+  border: 1px solid rgba(34, 211, 238, 0.3) !important;
+  border-radius: 0.5rem !important;
+  color: #e0f7fa !important;
+  transition: all 0.3s ease;
+}
+.cl-formFieldInput:focus {
+  border-color: #22d3ee !important;
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+}
+
+/* Labels */
+.cl-formFieldLabel {
+  color: #a5f3fc !important;
+}
+
+/* Primary buttons (save, update, etc.) */
+.cl-formButtonPrimary {
+  background: linear-gradient(90deg, #22d3ee, #a3e635) !important;
+  color: #000 !important;
+  font-weight: 600 !important;
+  border-radius: 9999px !important;
+  transition: all 0.3s ease !important;
+}
+.cl-formButtonPrimary:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.4);
+}
+
+/* Alert boxes (info, error, etc.) */
+.cl-alert {
+  background: rgba(34, 211, 238, 0.1) !important;
+  border: 1px solid rgba(34, 211, 238, 0.3) !important;
+  color: #e0f7fa !important;
+}
+
+/* Divider lines */
+.cl-dividerLine {
+  background-color: rgba(34, 211, 238, 0.3) !important;
+}
+
+/* Links (like "Change password") */
+.cl-link {
+  color: #22d3ee !important;
+  font-weight: 500 !important;
+}
+.cl-link:hover {
+  color: #a3e635 !important;
+}
+
+/* Footer */
+.cl-profile-footer {
+  color: #64748b !important;
+  text-align: center !important;
+  font-size: 0.8rem !important;
+}
+/* ===========================================
+   Clerk Auth Form - Custom Theme (Dark Glass)
+   =========================================== */
+
+/* Main Card Container */
+.cl-card {
+  background: rgba(10, 10, 15, 0.9) !important;
+  border: 1px solid rgba(34, 211, 238, 0.25) !important;
+  border-radius: 1.5rem !important;
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  color: #e0faff !important;
+  padding: 2rem !important;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Header */
+.cl-headerTitle {
+  background: linear-gradient(90deg, #22d3ee, #a3e635);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent !important;
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  text-align: center;
+}
+.cl-headerSubtitle {
+  color: #9ca3af !important;
+  text-align: center;
+  margin-top: 0.25rem;
+}
+
+/* Social Button (Google, etc.) */
+.cl-socialButtonsBlockButton {
+  background: rgba(15, 23, 42, 0.8) !important;
+  border: 1px solid rgba(34, 211, 238, 0.3) !important;
+  color: #a5f3fc !important;
+  transition: all 0.25s ease-in-out !important;
+  border-radius: 0.75rem !important;
+  font-weight: 500 !important;
+}
+.cl-socialButtonsBlockButton:hover {
+  background: rgba(8, 145, 178, 0.3) !important;
+  color: #d9f99d !important;
+  transform: translateY(-1px);
+}
+
+/* Divider Line + Text */
+.cl-dividerLine {
+  background-color: rgba(34, 211, 238, 0.3) !important;
+}
+.cl-dividerText {
+  color: rgba(163, 230, 53, 0.8) !important;
+  font-weight: 500;
+}
+
+/* Form Fields */
+.cl-formFieldLabel {
+  color: #67e8f9 !important;
+  font-weight: 500 !important;
+}
+.cl-formFieldInput {
+  background-color: rgba(15, 23, 42, 0.9) !important;
+  border: 1px solid rgba(34, 211, 238, 0.25) !important;
+  color: #e0faff !important;
+  border-radius: 0.6rem !important;
+  transition: all 0.25s ease-in-out;
+}
+.cl-formFieldInput:focus {
+  border-color: #22d3ee !important;
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.4);
+}
+.cl-formFieldHintText {
+  color: #94a3b8 !important;
+}
+
+/* Primary Continue Button */
+.cl-formButtonPrimary {
+  background: linear-gradient(90deg, #22d3ee, #a3e635) !important;
+  color: #000 !important;
+  font-weight: 600 !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.3);
+  transition: all 0.3s ease !important;
+}
+.cl-formButtonPrimary:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 25px rgba(163, 230, 53, 0.4);
+}
+
+/* Footer Links */
+.cl-footerActionText {
+  color: #9ca3af !important;
+}
+.cl-footerActionLink {
+  color: #22d3ee !important;
+  font-weight: 600 !important;
+  transition: all 0.25s ease-in-out;
+}
+.cl-footerActionLink:hover {
+  color: #a3e635 !important;
+  text-shadow: 0 0 6px rgba(163, 230, 53, 0.6);
+}
+
+/* Close Button (Top right X) */
+.cl-modalCloseButton {
+  color: #67e8f9 !important;
+  transition: transform 0.2s ease;
+}
+.cl-modalCloseButton:hover {
+  transform: rotate(90deg);
+  color: #a3e635 !important;
+}
+
+/* Captcha Container */
+#clerk-captcha {
+  filter: brightness(0.8) contrast(1.1);
+}
+
+/* Clerk "Secured by" Footer */
+.cl-footer {
+  background: transparent !important;
+  color: #64748b !important;
+  font-size: 0.8rem !important;
+  text-align: center;
+}
+
+/* Animations (Entrance Fade) */
+.cl-cardBox {
+  animation: fadeInUp 0.6s ease forwards;
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

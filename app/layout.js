@@ -1,6 +1,9 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
+import Navbar from "@/components/Navbar";
+import {
+  ClerkProvider,
+} from '@clerk/nextjs'
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -18,12 +21,79 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+<ClerkProvider
+  appearance={{
+    baseTheme: "dark",
+    variables: {
+      colorPrimary: "#22d3ee", // Cyan accent
+      colorText: "#ffffff", // ✅ White text globally
+      colorBackground: "#0a0a0f",
+      colorInputBackground: "#0f172a",
+      colorInputText: "#e0f7fa",
+      colorSuccess: "#a3e635", // lime accent
+      colorDanger: "#f87171",
+      borderRadius: "0.75rem",
+      colorTextOnPrimaryBackground: "#000000", // ✅ for readable text on light cyan buttons
+      colorTextOnSecondaryBackground: "#ffffff", // ✅ WHITE for dropdown text
+    },
+    elements: {
+      // Global card/container style
+      card:
+        "bg-[#0a0a0f] border border-cyan-900/50 shadow-[0_0_30px_rgba(0,255,255,0.1)] rounded-2xl",
+      headerTitle:
+        "bg-gradient-to-r from-cyan-400 to-lime-300 bg-clip-text text-transparent text-3xl font-bold",
+      headerSubtitle: "text-gray-400",
+
+      // Form fields
+      formFieldLabel: "text-cyan-200 font-medium",
+      formFieldInput:
+        "bg-[#0f172a] text-cyan-100 border border-cyan-800 focus:ring-2 focus:ring-cyan-400 rounded-lg placeholder-gray-500",
+
+      // Buttons (Sign in, Continue, etc.)
+      formButtonPrimary:
+        "bg-gradient-to-r from-cyan-500 to-lime-300 text-black font-semibold shadow-[0_0_15px_rgba(34,211,238,0.4)] hover:from-cyan-400 hover:to-lime-200 transition-all duration-300",
+
+      // Social auth buttons (Google, GitHub)
+      socialButtonsBlockButton:
+        "bg-[#0f172a] text-cyan-200 border border-cyan-800 hover:bg-cyan-950/50 hover:text-cyan-100 transition-all",
+
+      // Footer links (Sign up / Sign in toggle)
+      footerActionText: "text-gray-400",
+      footerActionLink:
+        "text-cyan-400 hover:text-lime-300 font-medium transition",
+
+      // Alert / Error / Info
+      alert:
+        "bg-cyan-950/30 border border-cyan-900/50 text-cyan-200 rounded-lg",
+
+      // Divider
+      dividerLine: "bg-cyan-900/60",
+      dividerText: "text-cyan-300/70",
+
+      // ✅ Fix Clerk dropdown text color - UPDATED
+      userButtonPopoverCard: "bg-[#0a0a0f] border border-cyan-800",
+      userButtonPopoverActionButton: "text-white hover:bg-cyan-950/60 hover:text-lime-300",
+      userButtonPopoverActionButtonText: "text-white hover:text-lime-300",
+      userButtonPopoverActionButtonIcon: "text-cyan-300",
+      userButtonPopoverFooter: "text-white border-t border-cyan-900/50",
+
+      // User button customization (profile avatar in navbar)
+      userButtonBox:
+        "border border-cyan-700 rounded-full hover:border-lime-300 transition-all duration-300",
+      avatarBox:
+        "ring-2 ring-cyan-500 ring-offset-2 ring-offset-[#0a0a0f] transition-all duration-300",
+    },
+  }}
+> 
+
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Navbar />
         {children}
       </body>
     </html>
+    </ClerkProvider>
   );
 }
